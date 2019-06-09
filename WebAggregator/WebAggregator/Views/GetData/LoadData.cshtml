@@ -1,0 +1,33 @@
+﻿<head>
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+    <meta charset="utf-8">
+    <title>Получение данных</title>
+    <script>
+        $('#upload').submit(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: this.action,
+        type: this.method,
+        data: new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            alert(data.UploadedFileCount + ' file(s) uploaded successfully');
+        },
+        error: function(xhr, error, status) {
+           alert(error, status);
+        }
+    });
+});
+    </script>
+</head>
+<body>
+    <h3>@ViewBag.Message</h3>
+    <h2>Загрузка данных</h2>
+    <form id="upload" enctype="multipart/form-data" action="@Url.Action("IsResultFileEmpty", "GetData")" method="POST">
+        <input type="file" name="fileUpload" id="fileUpload" /><br />
+        <button>Загрузить данные</button>
+    </form>
+</body>

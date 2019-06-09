@@ -1,0 +1,8 @@
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\bin\Debug\netstandard2.0\AggregationLibrary.deps.json
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\bin\Debug\netstandard2.0\AggregationLibrary.dll
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\bin\Debug\netstandard2.0\AggregationLibrary.pdb
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\obj\Debug\netstandard2.0\AggregationLibrary.csproj.CoreCompileInputs.cache
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\obj\Debug\netstandard2.0\AggregationLibrary.AssemblyInfoInputs.cache
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\obj\Debug\netstandard2.0\AggregationLibrary.AssemblyInfo.cs
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\obj\Debug\netstandard2.0\AggregationLibrary.dll
+D:\Рабочий стол\TPU3\WebAggregator\AggregationLibrary\obj\Debug\netstandard2.0\AggregationLibrary.pdb

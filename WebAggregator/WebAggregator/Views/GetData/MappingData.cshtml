@@ -1,0 +1,79 @@
+﻿@using WebAggregator.Models.ViewModels;
+@model MappingDataViewModel
+<head>
+    <script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+    <meta charset="utf-8">
+    <title>Слияние атрибутов</title>
+    <script>
+        $('#upload').submit(function(e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: this.action,
+        type: this.method,
+        data: new FormData(this),
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function (data) {
+            alert(data.UploadedFileCount + ' file(s) uploaded successfully');
+        },
+        error: function(xhr, error, status) {
+           alert(error, status);
+        }
+    });
+});
+    </script>
+</head>
+<body>
+    <form method="post" action="/GetData/MappingData">
+        <table>
+            <tr>
+                <th>
+                    Существующие атрибуты
+                </th>
+                <th>
+                    Полученные атрибуты
+                </th>
+                <th>
+                    Номер соответствующего существующего атрибута
+                </th>
+            </tr>
+            @{
+                for (int i = 0; i < Math.Max(Model.NewHeaders.Count, Model.CurrentHeaders.Count); ++i)
+                {
+                    <tr>
+                        @if (i < Model.CurrentHeaders.Count)
+                        {
+                            <td>
+                                @i. @Model.CurrentHeaders[i]
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                
+                            </td>
+                        }
+                        @if (i < Model.NewHeaders.Count)
+                        {
+                            <td>
+                                @Model.NewHeaders[i]
+                            </td>
+                            <td>
+                                <input type="number" value="-1" min="-1" id="id" name="id" />
+                            </td>
+                        }
+                    </tr>
+                }
+            }
+        </table>
+       
+
+        <h3><input class="btn btn-success" type="submit" value="Выполнить слияние" /></h3>
+    </form>
+    <form id="upload" enctype="multipart/form-data" action="@Url.Action("IsResultFileEmpty", "GetData")" method="POST">
+        <input type="file" name="fileUpload" id="fileUpload" /><br />
+        <button>Загрузить данные</button>
+    </form>
+</body>
